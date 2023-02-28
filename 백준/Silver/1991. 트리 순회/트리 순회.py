@@ -1,28 +1,28 @@
 N = int(input())
-tree = {}
+lst = {}
  
-for n in range(N):
+for n in range(1,N+1):
     root, left, right = map(str,input().split())
-    tree[root] = [left, right]
+    lst[root] = [left, right]
 
 def preorder(root):
     if root != '.':
         print(root, end='')  
-        preorder(tree[root][0]) 
-        preorder(tree[root][1])
+        preorder(lst[root][0])
+        preorder(lst[root][1])
  
  
 def inorder(root):
     if root != '.':
-        inorder(tree[root][0]) 
+        inorder(lst[root][0])
         print(root, end='') 
-        inorder(tree[root][1])
+        inorder(lst[root][1])
  
  
 def postorder(root):
     if root != '.':
-        postorder(tree[root][0])
-        postorder(tree[root][1])
+        postorder(lst[root][0])
+        postorder(lst[root][1])
         print(root, end='')
  
  
