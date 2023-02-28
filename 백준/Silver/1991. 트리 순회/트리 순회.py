@@ -1,28 +1,28 @@
 N = int(input())
-lst = {}
+dct = {}
  
 for n in range(1,N+1):
-    root, left, right = map(str,input().split())
-    lst[root] = [left, right]
+    root, l, r = map(str,input().split())
+    dct[root] = [l, r]
 
 def preorder(root):
     if root != '.':
         print(root, end='')  
-        preorder(lst[root][0])
-        preorder(lst[root][1])
+        preorder(dct[root][0])
+        preorder(dct[root][1])
  
  
 def inorder(root):
     if root != '.':
-        inorder(lst[root][0])
+        inorder(dct[root][0])
         print(root, end='') 
-        inorder(lst[root][1])
+        inorder(dct[root][1])
  
  
 def postorder(root):
     if root != '.':
-        postorder(lst[root][0])
-        postorder(lst[root][1])
+        postorder(dct[root][0])
+        postorder(dct[root][1])
         print(root, end='')
  
  
