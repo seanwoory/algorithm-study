@@ -4,7 +4,7 @@ def dfs(n,ci,cj,sm):
     global ans
 
     if n==3:
-        ans=max(ans, sm)
+        ans=max(ans,sm)
         return
 
     for di,dj in dr:
@@ -12,8 +12,6 @@ def dfs(n,ci,cj,sm):
         if 0<=ni<N and 0<=nj<M and (ni,nj) not in v:
             v.append((ni,nj))
             dfs(n+1,ni,nj,sm+arr[ni][nj])
-            v.pop()
-            v.append((ni, nj))
             dfs(n+1,ci,cj,sm+arr[ni][nj])
             v.pop()
 
@@ -24,7 +22,7 @@ ans=0
 
 for ci in range(N):
     for cj in range(M):
-        v = [(ci,cj)]
+        v=[(ci,cj)]
         dfs(0,ci,cj,arr[ci][cj])
 
 print(ans)
