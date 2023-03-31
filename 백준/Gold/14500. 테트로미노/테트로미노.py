@@ -2,6 +2,14 @@ dr = [(0,1),(1,0),(-1,0),(0,-1)]
 
 def dfs(n,ci,cj,sm):
     global ans
+    
+    if n==1:
+        if sm+what_is_max*2<ans:
+            return
+    
+    if n==2:
+        if sm+what_is_max<ans:
+            return
 
     if n==3:
         ans=max(ans,sm)
@@ -19,6 +27,11 @@ def dfs(n,ci,cj,sm):
 N, M = map(int, input().split())
 arr = [list(map(int, input().split())) for _ in range(N)]
 ans=0
+
+what_is_max = 0
+for lst in arr:
+    if max(lst)>what_is_max:
+        what_is_max=max(lst)
 
 for ci in range(N):
     for cj in range(M):
