@@ -20,11 +20,9 @@ while True:
     if N == 0:
         break
         
-    else:
-        arr = [list(map(int, input().split())) for _ in range(N)]
-        INF = 1e9
-        V = [[INF]*N for _ in range(N)]
-        bfs(0,0)
-        ans = V[N-1][N-1]
-        print(f'Problem {tc}: {ans}')
-        tc += 1
+    arr = [list(map(int, input().split())) for _ in range(N)]
+    V = [[1e8]*N for _ in range(N)]
+    bfs(0,0)
+    ans = V[N-1][N-1]
+    print(f'Problem {tc}: {ans}')
+    tc += 1
