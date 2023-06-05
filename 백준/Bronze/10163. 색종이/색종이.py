@@ -1,19 +1,20 @@
-N=int(input())
-ans=[0]*N
-arr=[[0]*1001 for _ in range(1001)]
-lst=[list(map(int, input().split())) for _ in range(N)]
-cnt=0
+n = int(input())
+ans = [[0 for _ in range(1001)] for _ in range(1001)]
+dct = dict()
+for i in range(1, n+1):
+    dct[i] = 0
+    dummy = list(map(int, input().split()))
+    for j in range(dummy[0], dummy[0] + dummy[2]):
+        for k in range(dummy[1], dummy[1] + dummy[3]):
+            if ans[j][k]:
+                dct[ans[j][k]] -= 1
+                dct[i] += 1
+                ans[j][k] = i
 
-for lt in lst:
-    cnt+=1
-    for n in range(lt[1], lt[3]+lt[1]):
-        for m in range(lt[0], lt[2]+lt[0]):
-            arr[n][m]=cnt
+            else:
+                dct[i] += 1
+                ans[j][k] = i
 
-for cri in range(1,N+1):
-    for k in range(1001):
-        for l in range(1001):
-            if arr[k][l]==cri:
-                ans[cri-1]+=1
 
-print(*ans)
+for i in range(1, n+1):
+    print(dct[i])
